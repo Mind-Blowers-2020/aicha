@@ -1,0 +1,85 @@
+{% extends 'front.html.twig' %}
+{% block body %}
+    <style>
+        #nav_pag{position: relative; left: 600px;bottom: 5px}
+    </style>
+    <center> <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 mb-5 text-center">
+                    <ul class="product-category">
+                        <li><a href="{{ path('produit') }}" class="active">All</a></li>
+                        <li><a href="{{ path('peche') }}">PECHE</a></li>
+                        <li><a href="{{ path('chasse') }}">CHASSE</a></li>
+                        <li><a href="{{ path('vetements') }}">VETEMENTS</a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+            <div class="container">
+                <div class="row">
+                    {% for vv in produit %}
+                        {% if vv.categorie=='peche' %}
+
+
+                        <div class="col-md-6 col-lg-3 ftco-animate">
+                            <div class="product">
+                                <a  href="{{ path('detailProduits' ,{ 'idP':vv.idP }) }} class="img-prod"><img class="img-fluid" src="{{ asset('images/') }}{{ vv.image }}" alt="Colorlib Template">
+
+                                <div class="overlay"></div>
+                                </a>
+
+                                <div class="text py-3 pb-4 px-3 text-center">
+
+                                    <h3><B><a href="#">{{vv.nomprod}}</a></B></h3>
+                                    <a> <h3>prix    : {{vv.prix}} TND</h3></a>
+
+
+                                    <a>   <h3>Description   :  {{vv.description}}</h3></a>
+                                    <a>   <h3>Catégorie   :  {{vv.categorie}}</h3></a>
+                                    <p><a  href="{{ path('detailProduits' ,{ 'idP':vv.idP }) }}  class="btn btn-black py-3 px-5">Voir détail</a></p>
+
+                                    <div class="row mt-4">
+
+                                        <div class="w-100"></div>
+                                        <div class="input-group col-md-6 d-flex mb-3">
+
+                                        </div>
+
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="pricing">
+
+                                        </div>
+                                    </div>
+                                    <div class="bottom-area d-flex px-3">
+                                        <div class="m-auto d-flex">
+
+                                            <span><i class="ion-ios-menu"></i></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+    </center>
+<div class="col text-center">
+    <div class="block-27">
+        <ul>
+            <li><a href="#">&lt;</a></li>
+            <li class="active" {{ knp_pagination_render(produit) }}></li>
+        </ul>
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+

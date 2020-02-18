@@ -1,9 +1,21 @@
 {% extends 'front.html.twig' %}
+
+
+
 {% block body %}
-   {% for vv in produit %}
-<a>   <h3>description   :  {{vv.description}}</h3></a>
 
 
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/rating.css') }}" />
+    <center> <a lass="img-prod"><img class="img-fluid" src="{{ asset('images/') }}{{ image }}" alt="Colorlib Template">
+    <a>   <h3>nom produit    :  {{nomprod}}</h3></a>
 
-   {% endfor %}
+    <a>   <h3>description   :  {{description}}</h3></a>
+    <a>   <h3>prix    :  {{prix}}</h3></a>
+
+    <a>   <h3>{{qt}}  piece available</h3></a>
+
+    <center>
+<br><br><br>
+
+
 {% endblock body %}
